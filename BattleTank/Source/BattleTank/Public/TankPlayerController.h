@@ -25,4 +25,7 @@ public:
 	// the crosshair intersecs the world
 	void AimTowardsCrosshair();
 	
+
+	// Return an OUT Parameter, true if hit landscape
+	bool GetSightRayHitLocation(FVector& HitLocation) const;
 };
