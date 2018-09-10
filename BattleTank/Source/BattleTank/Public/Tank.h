@@ -27,7 +27,7 @@ public:
 
 	void AimAt(FVector HitLocation);
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category = Firing)
 	void Fire();
 
 protected:
@@ -40,11 +40,12 @@ private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
-
+	
 	UPROPERTY(EditAnywhere, Category = Firing)
 		float LaunchSpeed = 4000; 
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
 
 	UPROPERTY(EditAnyWhere, Category = Setup)
@@ -53,4 +54,8 @@ private:
 	// local barrel reference for spawning projectile
 	UTankBarrel* Barrel = nullptr;
 
+
+	float ReloadTimeInSeconds = 3;
+
+	double LastFireTime = 0;
 };
