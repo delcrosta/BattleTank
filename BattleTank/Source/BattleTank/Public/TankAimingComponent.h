@@ -2,7 +2,6 @@
 
 #pragma once
 
-
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"
 
@@ -10,8 +9,7 @@
 class UTankBarrel;
 class UTankTurret;
 
-// holds barrel's properties and Elevate Method
-
+// Holds barrel's properties and Elevate method
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API UTankAimingComponent : public UActorComponent
 {
