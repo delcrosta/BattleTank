@@ -40,22 +40,23 @@ private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	
-	UPROPERTY(EditAnywhere, Category = Firing)
-		float LaunchSpeed = 4000; 
-
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
 
-	UPROPERTY(EditAnyWhere, Category = Setup)
-		TSubclassOf<AProjectile> ProjectileBlueprint; // alternative https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/TSubclassOf
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float LaunchSpeed = 4000;
+
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint; // alternative https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/TSubclassOf
+
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	float ReloadTimeInSeconds = 3;
+
 
 	// local barrel reference for spawning projectile
 	UTankBarrel* Barrel = nullptr;
 
-
-	float ReloadTimeInSeconds = 3;
-
+	
 	double LastFireTime = 0;
 };
